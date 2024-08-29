@@ -7,7 +7,9 @@
 <!--  <div ref="threeContainer"></div>-->
 <!--  <ThreeView />-->
   <div>{{ state.demo }}</div>
-  <div class="title" v-for="(item, index) in state.demoTitle" @click="chaneColor(item)" :class="{active : item.title === state.changeColorNum}">{{ item.title }}</div>
+  <div class="ceshi">
+    <div class="title" v-for="(item, index) in state.demoTitle" @click="chaneColor(item)" :class="{active : item.title === state.changeColorNum}">{{ item.title }}</div>
+  </div>
   <hr>
   <div>This is a demo</div>
 </template>
@@ -24,12 +26,13 @@ const state = reactive<any>({
     {title: 'Demo2'},
     {title: 'Demo3'},
     {title: 'Demo4'},
+    {title: 'Demo5'},
   ],
   changeColorNum: "Demo1",
 })
 const chaneColor = (item: any) => { //更改颜色
   state.changeColorNum = item.title;
-  console.log(item, state.changeColorNum);
+  // console.log(item, state.changeColorNum);
 }
 </script>
 <!--<script setup lang="ts">-->
@@ -43,9 +46,15 @@ const chaneColor = (item: any) => { //更改颜色
   text-align: center;
   color: #2c3e50;
 }
-.title {
-  &.active {
-    background: #cdf;
+.ceshi {
+  display: flex;
+  .title {
+    &.active {
+      background: #cdf;
+    }
+    display: flex;
+    width: 20%;
+    cursor: pointer;
   }
 }
 
